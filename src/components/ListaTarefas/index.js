@@ -11,16 +11,34 @@ import {
 import bin from "../../assets/bin.png";
 
 export function ListaTarefas() {
+
   const [novaTarefa, setNovaTarefa] = useState("");
+  const [lista, setLista] = useState(['Cozinhar','Comer', 'Estudar']);
 
 
   const onChangeTarefa = (event) => {
     setNovaTarefa(event.target.value);
   };
 
+  // const onChangeLista = (event) => {
+  //   setLista(event.target.value);
+  // };
+
+  const tarefas = lista.map((tarefa) => {
+    return (
+      <ul key={tarefa}>
+        <li>{tarefa}</li>
+      </ul>
+    )
+  })
+
+  console.log(tarefas)
+
   const adicionaTarefa = () => {};
 
   const removeTarefa = () => {};
+
+
 
   return (
     <ListaTarefasContainer>
@@ -32,6 +50,8 @@ export function ListaTarefas() {
         />
         <AddTaskButton>Adicionar</AddTaskButton>
       </InputContainer>
+
+      {tarefas} 
 
       <ListaContainer>
         <ul>
